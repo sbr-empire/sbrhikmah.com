@@ -1,16 +1,33 @@
 {
   "hosting": {
-    "public": "dist",
+    "public": "public",
     "ignore": [
       "firebase.json",
-      "**/.*",
+      "**/.*/",
       "**/node_modules/**"
     ],
     "rewrites": [
       {
         "source": "**",
-        "destination": "/index.html"
+        "run": {
+          "serviceId": "sbrhikmah",
+          "region": "asia-south2"
+        }
+      }
+    ],
+    "headers": [
+      {
+        "source": "**",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=3600"
+          }
+        ]
       }
     ]
+  },
+  "projects": {
+    "default": "sbrempire"
   }
 }
