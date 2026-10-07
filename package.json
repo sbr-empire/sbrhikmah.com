@@ -1,11 +1,26 @@
 {
-  "name": "sbr0-superapp-backend",
+  "name": "sbr-super-app-backend",
   "version": "1.0.0",
   "description": "Secure Serverless Backend for SBR Super-App AI Modules",
-  "main": "api/chat.js",
+  "main": "api/index.js",
+  "scripts": {
+    "start": "node api/index.js",
+    "dev": "nodemon api/index.js",
+    "build": "echo 'No build needed for Node.js'",
+    "test": "echo 'Tests pending'"
+  },
   "dependencies": {
-    "@google/generative-ai": "^0.1.0",
-    "openai": "^4.0.0",
-    "@anthropic-ai/sdk": "^0.9.0"
+    "@google/generative-ai": "^0.3.0",
+    "openai": "^4.28.0",
+    "@anthropic-ai/sdk": "^0.16.0",
+    "express": "^4.18.2",
+    "dotenv": "^16.3.1",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": "18.x"
   }
 }
