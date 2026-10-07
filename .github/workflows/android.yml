@@ -1,4 +1,7 @@
-workflow_dispatch:
+name: Android APK Build
+
+on:
+  workflow_dispatch:
 
 jobs:
   build:
@@ -6,23 +9,21 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: set up Node.js
+    - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
-        node-size: 20
+        node-version: 20
 
     - name: Install Bubblewrap
       run: npm install -g @bubblewrap/cli
 
     - name: Initialize and Build APK
       run: |
-        # यहाँ यह आपकी manifest.json से ऐप की डिटेल्स उठाकर सीधा APK जनरेट कर देगा
         bubblewrap init --manifest=manifest.json --meta=metadata.json || true
         bubblewrap build --skipSigning
-        
+
     - name: Upload APK
       uses: actions/upload-artifact@v4
       with:
         name: web-app-apk
         path: ./*.apk
-        
