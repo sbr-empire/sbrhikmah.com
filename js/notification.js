@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded",()=>{
    SBR GLOBAL NOTIFICATION SYSTEM
 ================================ */
 
-class SBRNotification {
+class SBRNotificationStore {
 
     constructor() {
         this.notifications = [];
@@ -125,7 +125,7 @@ class SBRNotification {
 
 }
 
-const NotificationSystem = new SBRNotification();
+const NotificationSystem = new SBRNotificationStore();
 
 NotificationSystem.load();
 /* Default Welcome Notification */
