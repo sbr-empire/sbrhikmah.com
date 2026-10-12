@@ -1,17 +1,26 @@
 {
   "hosting": {
-    "public": ".",
+    "public": "dist",
     "ignore": [
       "firebase.json",
-      ".firebaserc",
-      ".git/**",
-      ".github/**",
-      "node_modules/**",
-      "api/**",
-      "src/**",
-      "package*.json",
-      "Dockerfile",
-      "*.md"
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "/api/**",
+        "run": {
+          "serviceId": "sbrhikmah",
+          "region": "asia-south2"
+        }
+      },
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
     ]
+  },
+  "projects": {
+    "default": "sbrempire"
   }
 }
